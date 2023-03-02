@@ -1,6 +1,6 @@
 import { ColorModeContext, useMode} from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, useLocation} from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import MainSidebar from "./scenes/global/MainSidebar";
 import Dashboard from "./scenes/dashboard";
@@ -18,13 +18,14 @@ import Team from "./scenes/team";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const location = useLocation().pathname;
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <MainSidebar/>
+          <MainSidebar isDashboard={location === '/'}/>
           <main className="content">
             <Topbar/>
             <Routes>
