@@ -36,7 +36,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
-const MainSidebar = () => {
+const MainSidebar = ({isDashboard =false}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -45,6 +45,10 @@ const MainSidebar = () => {
   return (
     <Box
       sx={{
+        "& .pro-sidebar": {
+            height: isDashboard? 'max-content': '100%',
+        },
+
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
         },
