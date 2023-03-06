@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import GeographyChart from "../../components/GeographyChart";
 import { tokens } from "../../theme";
 import { useTheme } from "@mui/material";
-import ProgressCircle from "../../components/ProgressCircle";
 
 const Geography = () => {
     const theme = useTheme();
@@ -18,7 +17,6 @@ const Geography = () => {
             borderRadius='4px'            >
                 <GeographyChart />
             </Box>
-            <ProgressCircle/>
         </Box>
     );
 }
